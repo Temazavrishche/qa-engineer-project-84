@@ -1,0 +1,40 @@
+---
+- summary: |
+    Не отображается флаг в меню смены языка
+  environment: |
+    Yandex browser Версия 24.4.5.498 (64-bit)
+    OS windows 10
+  steps-to-reproduce: |
+    Зайти на сайт https://hexlet-products-store.vercel.app/
+    Нажать на Язык/language
+  expected-result: |
+    Будет список с доступными языками
+    У каждого языка флаг
+  actual-result: |
+    У английского языка нет флага
+    
+- summary: |
+    Отображаются категории которые только на текущей странице
+  environment: |
+    Yandex browser Версия 24.4.5.498 (64-bit)
+    OS windows 10
+  steps-to-reproduce: |
+    Зайти на сайт https://hexlet-products-store.vercel.app/
+    Нажать "категории"
+  expected-result: |
+    Должен быть список категорий всех товаров на сайте
+  actual-result: |
+    Отображаются категории которые только на текущей странице
+    
+- summary: |
+    В корзине отображается только цена до скидки
+  environment: |
+    Yandex browser Версия 24.4.5.498 (64-bit)
+    OS windows 10
+  steps-to-reproduce: |
+    Зайти на сайт https://hexlet-products-store.vercel.app/
+    Добавить несколько штук любого товара в корзину
+  expected-result: |
+    Должна быть либо текущая цена товара, либо цена до скидки и которая сейчас со скидкой
+  actual-result: |
+    Отображаются зачеркнутая цена до скидки
