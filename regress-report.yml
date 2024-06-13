@@ -1,0 +1,46 @@
+---
+test-cases:
+  - summary: |
+      Добавление товара в корзину
+    status: pass
+  - summary: |
+      Переключение языка сайта
+    status: fail
+  - summary: |
+      Проверка увеличение количества товара в корзине
+    status: pass
+  - summary: |
+      Проверка очистки корзины
+    status: fail
+
+bugreports:
+  - summary: |
+      Ошибка при заказе
+    environment: |
+      Yandex browser Версия 24.4.5.498 (64-bit)
+      OS windows 10
+    steps-to-reproduce: |
+      Открыть https://products-store-git-v2bugfixes-hexlet-components.vercel.app/cart
+      Добавить любой товар в корзину
+      Открыть корзину
+      Нажать "Оформить заказ"
+    expected-result: |
+      Заказ оформится и отправится информация на сервер
+    actual-result: |
+      Появляется окно об успешном заказе, но от сервера приходит ошибка
+    
+  - summary: |
+      Не работает кнопка очистки корзины
+    environment: |
+      Yandex browser Версия 24.4.5.498 (64-bit)
+    steps-to-reproduce: |
+      Открыть https://products-store-git-v2bugfixes-hexlet-components.vercel.app/cart
+      Добавить любой товар в корзину
+      Открыть корзину
+      Нажать "Очистить корзину"
+      Обновить страницу или нажать "Магазин"
+    expected-result: |
+      Корзина очистится
+    actual-result: |
+      Корзина очищается, но при обновлении страницы или переходе обратно в каталог удаленные товары восстанавливаются
+      При удалении конкретного товара поштучно работает корректно
