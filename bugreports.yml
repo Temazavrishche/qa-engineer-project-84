@@ -41,7 +41,7 @@
     Отображаются зачеркнутая цена до скидки
 
 - summary: |
-    В фильтре по цене максимальное значение указано не верно
+   В фильтре по цене максимальное значение указано не верно
   environment: |
     Yandex browser Версия 24.4.5.498 (64-bit)
     OS windows 10
@@ -54,17 +54,17 @@
     Отображаются сумма всех товаров без скидки
 
 - summary: |
-      Ошибка при заказе
-    environment: |
-      Yandex browser Версия 24.4.5.498 (64-bit)
-      OS windows 10
-    steps-to-reproduce: |
-      Открыть https://products-store-git-v2bugfixes-hexlet-components.vercel.app/cart
-      Добавить любой товар в корзину
-      Открыть корзину
-      Нажать "Оформить заказ"
-    expected-result: |
-      Заказ оформится и отправится информация на сервер
-    actual-result: |
-      Появляется окно об успешном заказе, но от сервера приходит ошибка
-      Pic2.png (Скрин)
+   Ошибка при заказе
+  environment: |
+    Yandex browser Версия 24.4.5.498 (64-bit)
+    OS windows 10
+  steps-to-reproduce: |
+    Открыть https://products-store-git-v2bugfixes-hexlet-components.vercel.app/cart
+    Добавить любой товар в корзину
+    Открыть корзину
+    Нажать "Оформить заказ"
+  expected-result: |
+    Заказ оформится и отправится информация на сервер
+  actual-result: |
+    Появляется окно об успешном заказе, но от сервера приходит ошибка
+    Pic2.png (Скрин)
