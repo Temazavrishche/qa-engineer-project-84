@@ -1,35 +1,58 @@
 ---
 test-cases:
-  - summary: |
-      Добавление товара в корзину
-    status: pass
-  - summary: |
-      Переключение языка сайта
-    status: fail
-  - summary: |
-      Проверка увеличение количества товара в корзине
-    status: pass
-  - summary: |
-      Проверка очистки корзины
-    status: fail
+- summary: |
+    Добавление товара в корзину
+  status: pass
+
+- summary: |
+    Переключение языка сайта
+  status: fail
+  
+- summary: |
+    Проверка увеличение количества товара в корзине
+  status: pass
+
+- summary: |
+    Проверка очистки корзины
+  status: pass
+  
+- summary: |
+    Проверка фильтра по брендам
+  status: pass
+
+- summary: |
+    Проверка максимального количества товара в корзине
+  status: pass
+
+- summary: |
+    Проверка поиска по названию
+  status: pass
+
+- summary: |
+    Проверка включенного фильтра "в наличии"
+  status: pass
+
+- summary: |
+   Проверка выключеного фильтра "в наличии"
+  status: fail
+
+- summary: |
+    Проверка фильтра по цене товара
+  status: fail
+
+- summary: |
+    Проверка кнопки "следующая"
+  status: pass
+
+- summary: |
+    Проверка кнопки "предыдущая"
+  status: pass
+
+- summary: |
+    Проверка оформления заказа
+  status: fail
 
 bugreports:
-  - summary: |
-      Ошибка при заказе
-    environment: |
-      Yandex browser Версия 24.4.5.498 (64-bit)
-      OS windows 10
-    steps-to-reproduce: |
-      Открыть https://products-store-git-v2bugfixes-hexlet-components.vercel.app/cart
-      Добавить любой товар в корзину
-      Открыть корзину
-      Нажать "Оформить заказ"
-    expected-result: |
-      Заказ оформится и отправится информация на сервер
-    actual-result: |
-      Появляется окно об успешном заказе, но от сервера приходит ошибка
-      Pic2.png (Скрин)
-    
   - summary: |
       Не работает кнопка очистки корзины
     environment: |
@@ -45,3 +68,78 @@ bugreports:
     actual-result: |
       Корзина очищается, но при обновлении страницы или переходе обратно в каталог удаленные товары восстанавливаются
       При удалении конкретного товара поштучно работает корректно
+
+  - summary: |
+      Пропадает кнопка "следующая"
+    environment: |
+      Yandex browser Версия 24.4.5.498 (64-bit)
+    steps-to-reproduce: |
+      Открыть https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      Убрать фильтр "в наличии"
+    expected-result: |
+      Станут видны товары котрых нет в наличии
+    actual-result: |
+      Пропадает кнопка "следующая"
+
+  - summary: |
+      Не верно работает фильтр по цене
+    environment: |
+      Yandex browser Версия 24.4.5.498 (64-bit)
+    steps-to-reproduce: |
+      Открыть https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      Ввести диапазон для цен в котором нет подходящих товаров      
+    expected-result: |
+      Будет пустой каталог, с надписью "ничего не найдено"
+    actual-result: |
+      Показывает все товары в магазине
+
+  - summary: |
+      Фильтр по цене ломает кнопку "следующая"
+    environment: |
+      Yandex browser Версия 24.4.5.498 (64-bit)
+    steps-to-reproduce: |
+      Открыть https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      Ввести любое число в поле для минимальной суммы в фильтре по цене    
+    expected-result: |
+      Скроются товары цена которых меньше указаной
+    actual-result: |
+      Товар скрывается, но пропадает кнопка "следующая"
+
+  - summary: |
+      Когда в каталоге отображается 1 товар, то верстка сайта ломается
+    environment: |
+      Yandex browser Версия 24.4.5.498 (64-bit)
+    steps-to-reproduce: |
+      Открыть https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      С помощью фильтров сделать чтоб в каталоге был 1 товар   
+    expected-result: |
+      Раздел с фильтрами и категориями остается на месте, в каталоге отображается 1 товар 
+    actual-result: |
+      Фильтра и категории расширяются, информация на карточке товара сдвигается
+      pic3(скрин)
+
+  - summary: |
+      Ломается фильтр по брендам
+    environment: |
+      Yandex browser Версия 24.4.5.498 (64-bit)
+    steps-to-reproduce: |
+      Открыть https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      Выбрать фильтр по любой категории
+      Сбросить фильтр по категориям
+      Выбрать фильтр по любому бренду
+    expected-result: |
+      Будут показаны товары выбраного бренда
+    actual-result: |
+      Фильтр по брендам перестает работать вообще, показывается весь каталог, и пропадает кнопка "следующая"
+
+  - summary: |
+      Не верно работает фильтр по названию
+    environment: |
+      Yandex browser Версия 24.4.5.498 (64-bit)
+    steps-to-reproduce: |
+      Открыть https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      Написать несуществующее название товара
+    expected-result: |
+      Будет показано предупреждение что не найдено соответсвующих товаров
+    actual-result: |
+      Показывает все товары в магазине
