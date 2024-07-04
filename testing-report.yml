@@ -12,5 +12,37 @@
   status: pass
   
 - summary: |
-    Проверка очистки корзины
+    Проверка фильтра по брендам
   status: pass
+
+- summary: |
+    Проверка увеличения количества товара в корзине
+  status: pass
+
+- summary: |
+    Проверка поиска по названию
+  status: pass
+
+- summary: |
+    Проверка включенного фильтра "в наличии"
+  status: pass
+
+- summary: |
+   Проверка выключеного фильтра "в наличии"
+  status: fail
+
+- summary: |
+    Проверка фильтра по цене товара
+  status: pass
+
+- summary: |
+    Проверка кнопки "следующая"
+  status: pass
+
+- summary: |
+    Проверка кнопки "предыдущая"
+  status: pass
+
+- summary: |
+    Проверка оформления заказа
+  status: fail
