@@ -50,7 +50,7 @@ test-cases:
 
 - summary: |
     Проверка оформления заказа
-  status: fail
+  status: pass
 
 bugreports:
   - summary: |
